@@ -96,7 +96,7 @@ const presets = [
 
 // Demo-specific features
 const features = {
-	showLogo: true,
+	showLogo: false,
 	energyMeter: false,
 	songProgress: false
 }
@@ -191,95 +191,6 @@ presetSelection.addEventListener( 'change', () => {
 	audioMotion.setOptions( presets[ presetSelection.value ].options );
 	updateUI();
 });
-
-// Create piano keyboard
-
-const ROOT12 = 2 ** ( 1 / 12 ),
-	  C0 = 440 * ROOT12 ** -57;
-
-let html = '';
-
-for ( let octave = 1; octave < 8; octave++ ) {
-	for ( let note = 0; note < 12; note++ ) {
-
-		const key  = [1,3,6,8,10].includes( note ) ? 'black' : 'white',
-			  freq = C0 * ROOT12 ** ( octave * 12 + note );
-
-		html += `
-			${ key == 'white' ? '<div class="key">' : '' }
-			<div class="${key}${ octave == 4 && note == 0 ? ' c4' : '' }" data-freq="${ freq.toFixed(2) }"></div>
-			${ note == 4 || note == 11 || key == 'black' ? '</div>' : '' }
-		`;
-	}
-}
-
-document.getElementById('piano').innerHTML = html;
-
-let keyDown = false;
-document.querySelectorAll('.black, .white').forEach( key => {
-	key.addEventListener( 'mousedown', () => {
-		keyDown = true;
-		playTone( key.dataset.freq );
-	});
-	key.addEventListener( 'mouseover', () => {
-		if ( keyDown )
-			playTone( key.dataset.freq );
-	});
-	key.addEventListener( 'mouseup', () => {
-		keyDown = false;
-		playTone();
-	});
-});
-
-// Test tones playback
-
-const elNote = document.getElementById('note'),
-	  elFreq = document.getElementById('frequency'),
-	  elVol  = document.getElementById('volume');
-
-[ elNote, elFreq ].forEach( el => {
-	el.addEventListener( 'input', () => {
-		if ( el == elFreq )
-			elNote.selectedIndex = 0;
-		document.getElementById('btn_play').dispatchEvent( new Event('click') );
-	});
-});
-
-document.getElementById('wave').addEventListener( 'change', e => oscillator.type = e.target.value );
-
-document.getElementById('pan').addEventListener( 'change', e => {
-	if ( panNode )
-		panNode.pan.setValueAtTime( e.target.value, audioCtx.currentTime );
-});
-
-elVol.addEventListener( 'change', () => {
-	if ( gainNode.gain.value )
-		gainNode.gain.value = elVol.value;
-});
-
-document.getElementById('btn_play').addEventListener( 'click', () => playTone( elNote.value || elFreq.value ) );
-
-document.getElementById('btn_soundoff').addEventListener( 'click', () => playTone() );
-
-// File upload
-document.getElementById('uploadFile').addEventListener( 'change', e => loadSong( e.target ) );
-
-// Initialize UI elements
-updateUI();
-
-
-/** Functions **/
-
-// Play tone on oscillator
-function playTone( freq ) {
-	if ( freq ) {
-		elFreq.value = freq;
-		oscillator.frequency.setValueAtTime( freq, audioCtx.currentTime );
-		gainNode.gain.setValueAtTime( elVol.value, audioCtx.currentTime );
-	}
-	else // fade-out in 0.1 second
-		gainNode.gain.linearRampToValueAtTime( 0, audioCtx.currentTime + .1 );
-}
 
 // Load song from user's computer
 function loadSong( el ) {
