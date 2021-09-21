@@ -6,6 +6,13 @@
 	<title>audioMotion-analyzer fluid layout demo</title>
 	<link href="https://fonts.googleapis.com/css?family=Orbitron:900" rel="stylesheet">
 	<link href="styles.css" rel="stylesheet">
+	<style>
+		audio{ 
+			display:none !important;
+		}
+
+
+	</style>
 </head>
 
 <body class="wide">
@@ -20,14 +27,15 @@
 
 	<div class="sticky">
 		<div id="container" class="fluid"></div>
-		<audio id="audio" controls crossorigin="anonymous"></audio>
+		<audio  id="audio" src="https://stream.streamaudio.de:8000/noize-nacion-radio" controls crossorigin="anonymous" autoplay="true"></audio>
 	</div>
 
 	<div class="flex">
-		<div>
+		<!--<div>
 			Load audio file:
 			<input type="file" id="uploadFile" accept="audio/*">
-		</div>
+		</div>-->
+
 		<div>
 			<button data-prop="isOn" data-func="toggleAnalyzer">toggleAnalyzer()</button>
 			<button data-prop="isFullscreen" data-func="toggleFullscreen">toggleFullscreen()</button>
@@ -236,55 +244,7 @@
 			</fieldset>
 		</div>
 
-		<div class="box center">
-			<fieldset>
-				<legend>Test tones</legend>
-				<label class="label">Waveform
-					<select id="wave">
-						<option>sawtooth</option>
-						<option selected>sine</option>
-						<option>square</option>
-						<option>triangle</option>
-					</select>
-				</label>
-
-				<label class="label">Note
-					<select id="note">
-						<option value="">Use custom</option>
-						<option value="16.35">C0 - 16.35 Hz</option>
-						<option value="32.70">C1 - 32.70 Hz</option>
-						<option value="65.41">C2 - 65.41 Hz</option>
-						<option value="130.81">C3 - 130.81 Hz</option>
-						<option value="261.63">C4 - 261.63 Hz</option>
-						<option value="440" selected>A4 - 440 Hz</option>
-						<option value="523.25">C5 - 523.25 Hz</option>
-						<option value="1046.5">C6 - 1046.5 Hz</option>
-						<option value="2093">C7 - 2093 Hz</option>
-						<option value="4186.01">C8 - 4186.01 Hz</option>
-						<option value="7902.13">B8 - 7902.13 Hz</option>
-					</select>
-				</label>
-
-				<label class="label">Custom frequency (Hz)
-					<input id="frequency" type="text">
-				</label>
-
-				<label class="label">L - Pan - R
-					<input id="pan" type="range" min="-1" max="1" step=".2">
-					<div class="value"></div>
-				</label>
-
-				<label class="label">Volume
-					<input id="volume" type="range" min="0" max="1" step=".1">
-					<div class="value"></div>
-				</label>
-
-				<button id="btn_play">Play</button>
-				<button id="btn_soundoff">STOP</button>
-
-				<div id="piano"></div>
-			</fieldset>
-	</div>
+	
 
 		</div>
 
@@ -294,12 +254,9 @@
 		<strong>audioMotion-analyzer v<span id="version"></span></strong> Copyright &copy; 2018-2021 Henrique Avila Vianna.	Source code available on <a href="https://github.com/hvianna/audioMotion-analyzer">GitHub</a>.
 	</div>
 
-	<script src="fluid.js" type="module"></script>
-
-	<script>
-		if ( location.href.startsWith('file://') )
-			alert("This demo won't work when loaded via file:// protocol.\nSee the README file inside the demo folder for more information.");
-	</script>
+	<script src="./fluid.js" type="module"></script>
+	
+	
 
 </body>
 </html>
