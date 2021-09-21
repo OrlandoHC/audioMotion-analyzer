@@ -12,11 +12,11 @@ const audioEl = document.getElementById('audio'),
 // Visualization presets
 const presets = [
 	{
-		name: 'Defaults',
+		name: 'Predeterminado',
 		options: undefined
 	},
 	{
-		name: 'Classic LEDs',
+		name: 'LEDs Clasicos',
 		options: {
 			mode: 3,
 			barSpace: .4,
@@ -30,7 +30,7 @@ const presets = [
 		}
 	},
 	{
-		name: 'Mirror wave',
+		name: 'Onda Espejo',
 		options: {
 			mode: 10,
 			fillAlpha: .6,
@@ -45,7 +45,7 @@ const presets = [
 		}
 	},
 	{
-		name: 'Radial overlay',
+		name: 'Superposición radial',
 		options: {
 			mode: 5,
 			barSpace: .1,
@@ -59,7 +59,7 @@ const presets = [
 		}
 	},
 	{
-		name: 'Reflex Bars',
+		name: 'Barras reflejas',
 		options: {
 			mode: 5,
 			barSpace: .25,
@@ -300,7 +300,7 @@ function drawCallback() {
 		// it usually works best than specific frequency ranges, for a wider range of music styles
 		ctx.font = `${ baseSize + audioMotion.getEnergy() * 25 * pixelRatio }px Orbitron, sans-serif`;
 
-		ctx.fillStyle = '#';
+		ctx.fillStyle = '#FE0000';
 		ctx.textAlign = 'center';
 		ctx.fillText( 'Noize Nación LIVE', canvas.width - baseSize * 8, baseSize * 2 );
 	}
