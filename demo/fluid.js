@@ -96,7 +96,7 @@ const presets = [
 
 // Demo-specific features
 const features = {
-	showLogo: false,
+	showLogo: true,
 	energyMeter: false,
 	songProgress: false
 }
@@ -300,9 +300,9 @@ function drawCallback() {
 		// it usually works best than specific frequency ranges, for a wider range of music styles
 		ctx.font = `${ baseSize + audioMotion.getEnergy() * 25 * pixelRatio }px Orbitron, sans-serif`;
 
-		ctx.fillStyle = '#fff8';
+		ctx.fillStyle = '#';
 		ctx.textAlign = 'center';
-		ctx.fillText( 'audioMotion', canvas.width - baseSize * 8, baseSize * 2 );
+		ctx.fillText( 'Noize Nación LIVE', canvas.width - baseSize * 8, baseSize * 2 );
 	}
 
 	if ( features.songProgress ) {

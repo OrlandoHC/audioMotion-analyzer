@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>audioMotion-analyzer fluid layout demo</title>
+	<title>Noize Nación Radio with audioMotion-analyzer</title>
 	<link href="https://fonts.googleapis.com/css?family=Orbitron:900" rel="stylesheet">
 	<link href="styles.css" rel="stylesheet">
 	<style>
@@ -36,7 +36,7 @@
 		</div>-->
 
 		<div>
-			<button data-prop="isOn" data-func="toggleAnalyzer">Pausar Visualización</button>
+			<button data-prop="isOn" data-func="toggleAnalyzer">Visualización</button>
 			<button data-prop="isFullscreen" data-func="toggleFullscreen">Ver en Pantalla Completa</button>
 		</div>
 	</div>
@@ -47,26 +47,26 @@
 				<select id="presets"></select>
 			</label>
 
-			<label class="label">mode
+			<label class="label">Modo
 				<select data-setting="mode">
-					<option value="0">0 - Discrete frequencies</option>
-					<option value="1">1 - 1/24th octave bands</option>
-					<option value="2">2 - 1/12th octave bands</option>
-					<option value="3">3 - 1/8th octave bands</option>
-					<option value="4">4 - 1/6th octave bands</option>
-					<option value="5">5 - 1/4th octave bands</option>
-					<option value="6">6 - 1/3rd octave bands</option>
-					<option value="7">7 - Half octave bands</option>
-					<option value="8">8 - Full octave bands</option>
-					<option value="10">10 - Line / Area graph</option>
+					<option value="0">0 - Frecuencias discretas</option>
+					<option value="1">1 - 1/24th Bandas de octava</option>
+					<option value="2">2 - 1/12th bandas de octava</option>
+					<option value="3">3 - 1/8th bandas de octava</option>
+					<option value="4">4 - 1/6th bandas de octava</option>
+					<option value="5">5 - 1/4th bandas de octava</option>
+					<option value="6">6 - 1/3rd bandas de octava</option>
+					<option value="7">7 - Mitad bandas de octava</option>
+					<option value="8">8 - Todas las bandas de octava</option>
+					<option value="10">10 - Línea / Área </option>
 				</select>
 			</label>
 
-			<label class="label">gradient
+			<label class="label">gradiente
 				<select data-setting="gradient">
-					<option value="classic">classic</option>
-					<option value="prism">prism</option>
-					<option value="rainbow">rainbow</option>
+					<option value="classic">clásica</option>
+					<option value="prism">prisma</option>
+					<option value="rainbow">arcoíris</option>
 				</select>
 			</label>
 
@@ -81,7 +81,7 @@
 				</select>
 			</label>
 
-			<label class="label">minFreq
+			<label class="label">Frecuencia Minima
 				<select data-setting="minFreq">
 					<option value="10">10</option>
 					<option value="20">20</option>
@@ -94,7 +94,7 @@
 				</select>
 			</label>
 
-			<label class="label">maxFreq
+			<label class="label">Frecuencia Máxima
 				<select data-setting="maxFreq">
 					<option value="8000">8000</option>
 					<option value="10000">10000</option>
@@ -105,28 +105,28 @@
 				</select>
 			</label>
 
-			<label class="label">minDecibels
+			<label class="label">Nivel Minumo Db
 				<input type="range" min="-100" max="-60" step="5" data-setting="minDecibels">
 				<div class="value"></div>
 			</label>
 
-			<label class="label">maxDecibels
+			<label class="label">Nivel Máximo Db
 				<input type="range" min="-40" max="0" step="5" data-setting="maxDecibels">
 				<div class="value"></div>
 			</label>
 
-			<label class="label">smoothing
+			<label class="label">Suavizado
 				<input type="range" min="0" max=".9" step=".1" data-setting="smoothing">
 				<div class="value"></div>
 			</label>
 
-			<label class="label">volume
+			<label class="label">Amplificación
 				<input type="range" min="0" max="1" step=".1" data-setting="volume">
 				<div class="value"></div>
 			</label>
 
 		</div>
-
+<!--
 		<div class="box center">
 			<fieldset>
 				<legend>modes 1-8 only</legend>
@@ -242,7 +242,7 @@
 				<button data-feature="songProgress">Progress bar</button>
 			</fieldset>
 		</div>
-
+-->
 	
 
 		</div>
